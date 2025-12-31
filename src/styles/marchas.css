@@ -53,20 +53,31 @@
 {
     background-color: #000514;
     border-radius: 6px;
-    padding: 2rem;
+    padding: 0;
 
 }
+
 
 /* Placeholder sin video */
 .video-empty
 {
     background-color: #1a1a1a;
     color: #bbb;
-    padding: 3rem;
+    padding: 0;
     text-align: center;
     border-radius: 4px;
     margin-top: 1rem;
     box-shadow: inset;
+}
+
+@media (min-width: 768px)
+{
+
+    .instrument-video,
+    .video-empty
+    {
+        padding: 2rem;
+    }
 }
 
 /* From Uiverse.io by alshahwan */

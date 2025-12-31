@@ -5,34 +5,66 @@
     background-color: #0b1a3d;
 } */
 
+/* Estilos base (Móvil) */
 .social-footer-wrapper
 {
     width: 100%;
     background-color: #000625;
-    /* Fondo oscuro para que combine con el footer */
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 30px 0;
-    gap: 20px;
+    padding: 20px 0;
+    /* Menos padding en móvil */
+    gap: 12px;
+    /* Gap más pequeño para que quepan todos */
     border-top: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .social-footer-container
 {
-    width: 52px;
-    height: 52px;
+    width: 42px;
+    /* Más pequeños en móvil */
+    height: 42px;
+    /* Más pequeños en móvil */
     background-color: rgb(44, 44, 44);
     display: flex;
     align-items: center;
     justify-content: center;
     border-radius: 8px;
-    /* Opcional: bordes redondeados */
     overflow: hidden;
     transition-duration: .3s;
     text-decoration: none;
 }
 
+.social-footer-svg
+{
+    width: 16px;
+    /* Icono un poco más pequeño */
+    fill: white;
+}
+
+/* --- Ajustes para PC --- */
+@media (min-width: 768px)
+{
+    .social-footer-wrapper
+    {
+        padding: 30px 0;
+        gap: 20px;
+    }
+
+    .social-footer-container
+    {
+        width: 52px;
+        height: 52px;
+    }
+
+    .social-footer-svg
+    {
+        width: 18px;
+    }
+}
+
+/* --- Estados de Interacción (Hover/Active) --- */
 .social-footer-container.instagram:hover
 {
     background-color: #d62976;
@@ -61,12 +93,6 @@
 .social-footer-container:active
 {
     transform: scale(0.9);
-}
-
-.social-footer-svg
-{
-    width: 18px;
-    fill: white;
 }
 
 .social-footer-container:hover .social-footer-svg
