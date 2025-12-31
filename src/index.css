@@ -1,0 +1,18 @@
+src/index.css body
+{
+  margin: 0;
+  padding: 0;
+  display: block;
+  /* Quitamos el flex que centraba todo */
+  width: 100%;
+  min-height: 100vh;
+  background-color: #f8f9fa;
+  /* El gris claro de tu fondo original */
+}
+
+#root
+{
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}

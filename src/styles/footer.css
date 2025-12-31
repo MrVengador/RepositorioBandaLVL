@@ -1,0 +1,90 @@
+/* Estilos personalizados para redes sociales en el footer */
+
+/* .footer-text
+{
+    background-color: #0b1a3d;
+} */
+
+.social-footer-wrapper
+{
+    width: 100%;
+    background-color: #000625;
+    /* Fondo oscuro para que combine con el footer */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px 0;
+    gap: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.social-footer-container
+{
+    width: 52px;
+    height: 52px;
+    background-color: rgb(44, 44, 44);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    /* Opcional: bordes redondeados */
+    overflow: hidden;
+    transition-duration: .3s;
+    text-decoration: none;
+}
+
+.social-footer-container.instagram:hover
+{
+    background-color: #d62976;
+}
+
+.social-footer-container.tiktok:hover
+{
+    background-color: #000000;
+}
+
+.social-footer-container.facebook:hover
+{
+    background-color: #0072b1;
+}
+
+.social-footer-container.youtube:hover
+{
+    background-color: #bd0000;
+}
+
+.social-footer-container.email:hover
+{
+    background-color: #8d7f00;
+}
+
+.social-footer-container:active
+{
+    transform: scale(0.9);
+}
+
+.social-footer-svg
+{
+    width: 18px;
+    fill: white;
+}
+
+.social-footer-container:hover .social-footer-svg
+{
+    animation: social-slide-in-top 0.3s both;
+}
+
+@keyframes social-slide-in-top
+{
+    0%
+    {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+
+    100%
+    {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

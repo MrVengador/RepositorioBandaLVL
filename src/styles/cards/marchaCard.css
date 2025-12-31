@@ -1,0 +1,90 @@
+/* =====================================================
+   Cards reutilizables (Marchas / Presentaciones)
+   ===================================================== */
+
+.marcha-card,
+.presentacion-card
+{
+    position: relative;
+    height: 100%;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.marcha-card:hover,
+.presentacion-card:hover
+{
+    transform: translateY(-5px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.marcha-card .card-body,
+.presentacion-card .card-body
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+/* 🔑 TÍTULO CON ALTURA RESERVADA */
+.marcha-card .card-title
+{
+    .marcha-card
+    {
+        border-radius: 0.75rem;
+        background-color: #ffffff;
+    }
+
+    .marcha-card .card-body
+    {
+        padding: 1.25rem;
+    }
+
+    .marcha-card .card-title
+    {
+        font-size: 1.1rem;
+        font-weight: 600;
+        line-height: 1.35;
+    }
+
+    /* Metadata */
+    .marcha-card .card-text
+    {
+        font-size: 0.9rem;
+        color: #495057;
+    }
+
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+
+    line-height: 1.3;
+    min-height: calc(1.3em * 2);
+    margin-bottom: 0.75rem;
+}
+
+.marcha-card .card-text,
+.presentacion-card .card-text
+{
+    font-size: 0.9rem;
+}
+
+.presentacion-card .card-img-top
+{
+    height: 200px;
+    object-fit: cover;
+}
+
+.content-card
+{
+    background-color: #ffffff;
+    padding: 1.25rem;
+    border-radius: 0.5rem;
+}
+
+.marcha-card a.stretched-link,
+.presentacion-card a.stretched-link
+{
+    z-index: 1;
+}

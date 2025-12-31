@@ -1,0 +1,114 @@
+/* =========================================================
+   BASE.CSS
+   Estilos globales y estructurales del sitio
+   ========================================================= */
+
+/* === 1. Reset básico y layout global === */
+
+
+:root
+{
+    --color-primary: #0a1a33;
+    /* Azul marino */
+    --color-secondary: #f5c400;
+    /* Amarillo */
+    --color-text-light: #ffffff;
+}
+
+html,
+body
+{
+    min-height: 100%;
+}
+
+body
+{
+    display: flex;
+    flex-direction: column;
+    background-color: #f0f0f0;
+    margin: 0;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        Roboto, "Helvetica Neue", Arial, sans-serif;
+}
+
+/* Contenedor raíz de React */
+#root
+{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Contenido principal */
+main
+{
+    flex: 1 0 auto;
+    width: 100%;
+    display: block;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* === 2. Tipografías globales === */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6
+{
+    margin-top: 0;
+    font-weight: 600;
+}
+
+p
+{
+    margin-top: 0;
+    line-height: 1.6;
+}
+
+/* === 3. Navbar === */
+
+.navbar-custom
+{
+    background-color: #0b1a3d;
+}
+
+#TitleNav
+{
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+}
+
+.navbar-custom .nav-link
+{
+    color: #ffffff !important;
+    font-weight: 600;
+    text-align: center;
+}
+
+.navbar-custom .nav-link:hover,
+.nav-link.active
+{
+    color: #ffc107 !important;
+}
+
+/* Branding */
+.navbar-brand span
+{
+    margin-left: 0.5rem;
+    vertical-align: middle;
+}
+
+/* === 4. Títulos de contexto === */
+
+.page-context-title
+{
+    display: inline-block;
+    margin-bottom: 1rem;
+    padding-bottom: 0.25rem;
+    font-weight: 600;
+}
+
+/* === 5. Footer === */
