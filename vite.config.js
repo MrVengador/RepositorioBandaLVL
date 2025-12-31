@@ -10,6 +10,6 @@ export default defineConfig({
       },
     }),
   ],
-  // Añadimos la base con el nombre exacto de tu repositorio 
-  base: '/Repositorio_Banda_LVL/',
+  // Debe coincidir exactamente con el nombre en GitHub
+  base: '/RepositorioBandaLVL/',
 })
