@@ -30,14 +30,16 @@ export const useMarchasData = () => {
                             caja: columns[6] || null,
                             pifano: columns[7] || null,
                             clarin: columns[8] || null,
-                            bateria: columns[9] || null
+                            bateria: columns[9] || null,
+                            instrumental: columns[10] || null
+
                         },
                         partituras: {
-                            "Trompeta": columns[10], // Columna K (índice 10)
-                            "Trompeta 2": columns[11], // Columna L (índice 11)
-                            "Trombón": columns[12],
-                            "Trombón 2": columns[13],
-                            "Lira": columns[14],
+                            "Trompeta": columns[11], // Columna K (índice 10)
+                            "Trompeta 2": columns[12], // Columna L (índice 11)
+                            "Trombón": columns[13],
+                            "Trombón 2": columns[14],
+                            "Lira": columns[15],
                         }
                     };
                 });
