@@ -1,7 +1,7 @@
 import "../../styles/footer.css";
 
 const Footer = () => (
-    <footer className="mt-auto">
+    <footer className="mt-5 ">
         {/* Sección de Redes Sociales */}
         <div className="social-footer-wrapper">
             {/* Instagram */}

@@ -1,68 +1,12 @@
-/* .home-carousel
-{
-    position: relative;
-    width: 100vw;
-    height: 70vh;
-    overflow: hidden;
-    margin-left: calc(-50vw + 50%);
-}
-
-.carousel-img
-{
-    position: absolute;
-    inset: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0;
-    transition: opacity 1s ease-in-out;
-}
-
-.carousel-img.active
-{
-    opacity: 1;
-}
-
-.carousel-overlay
-{
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 33%;
-    background: linear-gradient(to top,
-            rgba(0, 0, 0, 0.65),
-            rgba(0, 0, 0, 0.15));
-    color: white;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    z-index: 2;
-    padding: 1.5rem;
-}
-
-.carousel-overlay h1
-{
-    font-size: 3rem;
-    font-weight: 600;
-}
-
-.carousel-overlay p
-{
-    font-size: 1.2rem;
-    max-width: 600px;
-} */
-
 .home-carousel
 {
     position: relative;
     width: 100vw;
-    /* Altura para celulares */
     height: 40vh;
+    /* Altura móvil */
     overflow: hidden;
     margin-left: calc(-50vw + 50%);
+    background-color: #000;
 }
 
 .carousel-img
@@ -74,6 +18,8 @@
     object-fit: cover;
     opacity: 0;
     transition: opacity 1s ease-in-out;
+    z-index: 1;
+    /* Imagen al fondo */
 }
 
 .carousel-img.active
@@ -81,44 +27,64 @@
     opacity: 1;
 }
 
-/* --- Ajustes de Altura y Texto para PC --- */
+/* --- EL OVERLAY QUE FALTA --- */
+.carousel-overlay
+{
+    position: absolute;
+    bottom: 0;
+    /* Anclado a la base */
+    left: 0;
+    width: 100%;
+    height: 50%;
+    /* Solo la mitad inferior */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Centra el texto dentro de ese 50% */
+    align-items: center;
+    text-align: center;
+    z-index: 10;
+    color: white;
+    padding: 1.5rem;
+
+    /* Degradado que nace desde el negro total en la base hacia transparente */
+    background: linear-gradient(to top,
+            rgb(0, 0, 0) 0%,
+            rgba(0, 0, 0, 0.5) 75%,
+            transparent 100%);
+}
+
+/* --- Ajustes Responsive --- */
 @media (min-width: 768px)
 {
     .home-carousel
     {
-        /* Altura original para pantallas grandes */
         height: 70vh;
+        /* Altura PC */
     }
 
     .carousel-overlay h1
     {
-        font-size: 3rem;
+        font-size: 3.5rem;
+        font-weight: 700;
     }
 
     .carousel-overlay p
     {
-        font-size: 1.2rem;
+        font-size: 1.4rem;
+        max-width: 700px;
     }
 }
 
-/* --- Ajustes extra para el texto en Celulares --- */
 @media (max-width: 767px)
 {
     .carousel-overlay h1
     {
         font-size: 1.8rem;
-        /* Texto más pequeño para que no se amontone */
     }
 
     .carousel-overlay p
     {
         font-size: 1rem;
-        max-width: 90%;
-    }
-
-    .carousel-overlay
-    {
-        height: 40%;
-        /* Un poco más de espacio para el degradado en móvil */
     }
 }

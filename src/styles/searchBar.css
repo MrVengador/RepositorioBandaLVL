@@ -1,0 +1,167 @@
+.form
+{
+    --input-text-color: #fff;
+    --input-bg-color: #283542;
+    --focus-input-bg-color: transparent;
+    --text-color: #949faa;
+    --active-color: #1b9bee;
+    --width-of-input: 100%;
+    /* Cambiado a 100% para que use el col-md-8 de Bootstrap */
+    --inline-padding-of-input: 1.2em;
+    --gap: 0.9rem;
+}
+
+.form
+{
+    font-size: 0.9rem;
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    width: var(--width-of-input);
+    max-width: 500px;
+    /* Opcional: para que no sea excesivamente ancho en pantallas grandes */
+    position: relative;
+    isolation: isolate;
+}
+
+.fancy-bg
+{
+    position: absolute;
+    width: 100%;
+    inset: 0;
+    background: var(--input-bg-color);
+    border-radius: 30px;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+label
+{
+    width: 100%;
+    padding: 0.8em;
+    height: 45px;
+    /* Un poco más alto para comodidad */
+    padding-inline: var(--inline-padding-of-input);
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.search,
+.close-btn
+{
+    position: absolute;
+}
+
+.search
+{
+    fill: var(--text-color);
+    left: var(--inline-padding-of-input);
+    display: flex;
+    align-items: center;
+}
+
+svg
+{
+    width: 17px;
+    display: block;
+}
+
+.close-btn
+{
+    border: none;
+    right: var(--inline-padding-of-input);
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    padding: 0.1em;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--active-color);
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.input
+{
+    color: var(--input-text-color);
+    width: 100%;
+    height: 100%;
+    /* Que ocupe todo el alto del label */
+    background: none;
+    border: none;
+    /* Deja espacio a la izquierda para la lupa y a la derecha para la X */
+    padding-left: 45px;
+    padding-right: 40px;
+    font-size: 0.95rem;
+}
+
+.input:focus
+{
+    outline: none;
+}
+
+.input::placeholder
+{
+    color: var(--text-color);
+}
+
+.input:focus~.fancy-bg
+{
+    border: 1px solid var(--active-color);
+    background: var(--focus-input-bg-color);
+}
+
+.input:focus~.search
+{
+    fill: var(--active-color);
+}
+
+label
+{
+    width: 100%;
+    height: 45px;
+    /* Altura fija para control total */
+    padding: 0;
+    /* Reset de padding para que no mueva los absolutos */
+    display: flex;
+    align-items: center;
+    position: relative;
+    cursor: text;
+}
+
+.search
+{
+    position: absolute;
+    /* Centrado vertical matemático */
+    top: 50%;
+    transform: translateY(-50%);
+
+    /* Posición horizontal */
+    left: 15px;
+
+    /* Forzar tamaño del contenedor del SVG */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 20px;
+    height: 20px;
+
+    fill: var(--text-color);
+    z-index: 3;
+    pointer-events: none;
+    /* Para que el click pase al input */
+}
+
+/* El SVG debe heredar el tamaño del contenedor .search */
+.search svg
+{
+    width: 100%;
+    height: 100%;
+    display: block;
+}

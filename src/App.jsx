@@ -1,8 +1,9 @@
-import { HashRouter as Router, Routes, Route } from "react-router-dom"; // Usamos HashRouter
+import { HashRouter as Router, Routes, Route } from "react-router-dom";
+// Importa el Provider de Chakra UI (ajusta la ruta según tu instalación)
+import { Provider } from "./components/ui/provider";
 
 import Header from "./components/layout/Header.jsx";
 import Footer from "./components/layout/Footer.jsx";
-
 import Home from "./pages/Home.jsx";
 import Marchas from "./pages/Marchas.jsx";
 import MarchaDetail from "./pages/MarchaDetail.jsx";
@@ -15,20 +16,21 @@ import "./styles/marchas.css";
 
 function App() {
   return (
-    <Router> {/* Router ahora envuelve toda la app */}
-      <Header />
+    <Provider> {/* 1. El Provider de Chakra envuelve todo */}
+      <Router>
+        <Header />
 
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/marchas" element={<Marchas />} />
-        {/* El parámetro :slug permite cargar detalles como 'penachos-rojos' */}
-        <Route path="/marchas/:slug" element={<MarchaDetail />} />
-        <Route path="/presentaciones" element={<Presentaciones />} />
-        <Route path="/archivos" element={<Archivos />} />
-      </Routes>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/marchas" element={<Marchas />} />
+          <Route path="/marchas/:slug" element={<MarchaDetail />} />
+          <Route path="/presentaciones" element={<Presentaciones />} />
+          <Route path="/archivos" element={<Archivos />} />
+        </Routes>
 
-      <Footer />
-    </Router>
+        <Footer />
+      </Router>
+    </Provider>
   );
 }
 

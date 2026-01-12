@@ -9,18 +9,15 @@ const Presentaciones = () => {
     const [search, setSearch] = useState("");
     const { presentaciones, loading, error } = usePresentacionesData();
 
-    // Priorizamos datos del CSV si existen y no estamos cargando
     const hasRemoteData = presentaciones && presentaciones.length > 0;
     const source = !loading && hasRemoteData ? presentaciones : presentacionesFallback;
 
-    // Filtro de búsqueda
     const filtradas = source.filter(p =>
         p.title?.toLowerCase().includes(search.toLowerCase())
     );
 
     return (
         <main className="px-5 bg-light min-vh-100 pb-5">
-
             <PageTitle title="Presentaciones" />
 
             <h1 className="page-context-title my-5">Presentaciones</h1>
@@ -46,32 +43,44 @@ const Presentaciones = () => {
                 )}
             </div>
 
-            {/* GRILLA DE TARJETAS */}
+            {/* GRILLA DE TARJETAS O ESTADO VACÍO */}
             <section className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4 mt-2">
-                {filtradas.map(p => (
-                    <div className="col" key={p.id}>
-                        {/* IMPORTANTE: Pasamos las props exactas que vienen del Hook 
-                           para que la Card no reciba 'undefined'
-                        */}
-                        <PresentacionCard
-                            id={p.id}
-                            title={p.title}
-                            type={p.type}
-                            date={p.date}
-                            cover={p.cover}
-                            driveUrl={p.driveUrl}
-                        />
+                {filtradas.length > 0 ? (
+                    filtradas.map(p => (
+                        <div className="col" key={p.id}>
+                            <PresentacionCard
+                                id={p.id}
+                                title={p.title}
+                                type={p.type}
+                                date={p.date}
+                                cover={p.cover}
+                                driveUrl={p.driveUrl}
+                            />
+                        </div>
+                    ))
+                ) : (
+                    /* MENSAJE CENTRADO CUANDO NO HAY RESULTADOS */
+                    <div className="col-12 d-flex flex-column align-items-center justify-content-center py-5 w-100">
+                        <h3 className="text-muted text-center mb-3">
+                            No se encontraron presentaciones que coincidan con <br />
+                            <strong>"{search}"</strong>
+                        </h3>
+                        <button
+                            className="btn btn-primary px-4"
+                            onClick={() => setSearch("")}
+                        >
+                            Ver todas las presentaciones
+                        </button>
                     </div>
-                ))}
+                )}
             </section>
 
-            {/* PIE DE PÁGINA / ESTADO VACÍO */}
-            <div className="mt-5 text-center border-top pt-4">
-                {filtradas.length === 0 && !loading(
-                    <p className="text-muted">No se encontraron resultados.</p>
-
-                )}
-            </div>
+            {/* PIE DE PÁGINA (OPCIONAL) */}
+            {!loading && filtradas.length > 0 && (
+                <div className="mt-5 text-center border-top pt-4">
+                    <p className="text-muted small">Fin del catálogo</p>
+                </div>
+            )}
         </main>
     );
 };

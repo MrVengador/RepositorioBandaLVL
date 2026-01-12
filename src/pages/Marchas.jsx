@@ -19,10 +19,8 @@ const Marchas = () => {
             : marchasFallback;
 
     // Filtro de búsqueda
-    const marchasFiltradas = marchasSource.filter((marcha) =>
-        marcha.titulo
-            ?.toLowerCase()
-            .includes(search.toLowerCase())
+    const marchasFiltradas = (marchasSource || []).filter((marcha) =>
+        marcha?.titulo?.toLowerCase().includes(search.toLowerCase())
     );
 
     return (
@@ -52,20 +50,28 @@ const Marchas = () => {
             )}
 
             {/* LISTADO */}
-            <section
-                className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4"
-                id="listaMarchas"
-            >
-                {marchasFiltradas.map((marcha) => (
-                    <div className="col" key={marcha.id}>
-                        <MarchaCard
-                            id={marcha.id}
-                            titulo={marcha.titulo}
-                            autor={marcha.autor}
-                            year={marcha.year}
-                        />
+            <section className="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4" id="listaMarchas">
+                {marchasFiltradas.length > 0 ? (
+                    marchasFiltradas.map((marcha) => (
+                        <div className="col" key={marcha.id}>
+                            <MarchaCard {...marcha} />
+                        </div>
+                    ))
+                ) : (
+                    /* Cambiamos el contenedor para que ocupe las 12 columnas y centre el contenido */
+                    <div className="col-12 d-flex flex-column align-items-center justify-content-center py-5 w-100">
+                        <h3 className="text-muted text-center mb-3">
+                            No se encontraron marchas que coincidan con <br />
+                            <strong>"{search}"</strong>
+                        </h3>
+                        <button
+                            className="btn btn-primary px-4"
+                            onClick={() => setSearch("")}
+                        >
+                            Limpiar búsqueda
+                        </button>
                     </div>
-                ))}
+                )}
             </section>
 
             {/* FALLBACK AVISO */}
