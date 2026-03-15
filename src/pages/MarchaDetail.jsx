@@ -17,6 +17,7 @@ const MarchaDetail = () => {
 
     const marcha = marchas.find(m => m.id === slug);
 
+    // ✅ Solo redirige si ya cargó y aún así no existe
     if (!marcha) {
         return <Navigate to="/marchas" replace />;
     }

@@ -21,7 +21,7 @@ const Header = () => {
                         // className="rounded-circle border border-warning"
                         />
                         <span className="navbar-title">
-                            Repositorio Banda LVL
+                            Indexador Banda LVL
                         </span>
                     </NavLink>
 
