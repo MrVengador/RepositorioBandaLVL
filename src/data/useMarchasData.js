@@ -35,6 +35,7 @@ export const useMarchasData = () => {
                         "Trombón": row.Trombón || null,
                         "Trombón 2": row["Trombón 2"] || null,
                         "Lira": row.Lira || null,
+                        "Pifanos": row.Pifanos || null,
                     },
                 }));
 

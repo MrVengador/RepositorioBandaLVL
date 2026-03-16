@@ -7,7 +7,9 @@ const MarchaDetail = () => {
     const { slug } = useParams();
     const { marchas, loading } = useMarchasSource();
 
-    if (loading) {
+    const marcha = marchas.find(m => m.id === slug);
+
+    if (!marcha && loading) {
         return (
             <main>
                 <p className="text-muted">Cargando marcha…</p>
@@ -15,9 +17,6 @@ const MarchaDetail = () => {
         );
     }
 
-    const marcha = marchas.find(m => m.id === slug);
-
-    // ✅ Solo redirige si ya cargó y aún así no existe
     if (!marcha) {
         return <Navigate to="/marchas" replace />;
     }

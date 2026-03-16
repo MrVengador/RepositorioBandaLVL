@@ -43,7 +43,7 @@ const Footer = () => (
         {/* Franja de Derechos Reservados */}
         <div className="bg-dark text-light p-3 text-center">
             <p className="mb-0" style={{ fontSize: '0.9rem', opacity: 0.8 }}>
-                Derechos reservados @BandaLVL 2025 - PROTOTIPO -
+                Derechos reservados @BandaLVL 2026 - PROTOTIPO -
             </p>
         </div>
     </footer>
